@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Blocks } from 'react-loader-spinner';
 import "./topRatedMovies.css"
 
 const TopRatedMovies = () => {
@@ -14,6 +15,7 @@ const TopRatedMovies = () => {
         const fetchTopRatedMovies = async () => {
             try {
                 setLoading(true);
+                
                 const response = await axios.get(`${BASE_URL}/movie/top_rated`, {
                     params: {
                         api_key: API_KEY,
@@ -35,7 +37,19 @@ const TopRatedMovies = () => {
     const handleNextPage = () => setCurrentPage((prev) => prev + 1);
     const handlePrevPage = () => setCurrentPage((prev) => (prev > 1 ? prev - 1 : 1));
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) {
+    return (
+        <div className='loading'>
+            <Blocks
+            height="100"
+            width="100"
+            color="#4fa94d"
+            ariaLabel="blocks-loading"
+            visible={true}
+            />
+        </div>
+        );
+    }
 
     return (
         <div className='App'>
