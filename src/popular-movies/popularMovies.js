@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Blocks } from 'react-loader-spinner';
 import "./popularMovies.css";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [page, setPage] = useState(1); // Página atual
   const [totalPages, setTotalPages] = useState(1); // Total de páginas
@@ -14,6 +16,7 @@ const App = () => {
 
   const fetchMovies = async (currentPage) => {
     try {
+      setLoading(true);
       const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
       const response = await axios.get(
         `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${currentPage}`
@@ -22,6 +25,9 @@ const App = () => {
       setTotalPages(response.data.total_pages); // Atualiza o total de páginas
     } catch (error) {
       console.error("Error fetching movies:", error);
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -32,6 +38,20 @@ const App = () => {
   const handlePreviousPage = () => {
     if (page > 1) setPage(page - 1);
   };
+
+  if (loading) {
+    return (
+        <div className='loading'>
+            <Blocks
+            height="100"
+            width="100"
+            color="#4fa94d"
+            ariaLabel="blocks-loading"
+            visible={true}
+            />
+        </div>
+        );
+  }
 
   return (
     <div className="App">

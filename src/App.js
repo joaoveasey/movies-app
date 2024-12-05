@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import PopularMovies from './popular-movies/popularMovies';
 import TopRatedMovies from './top-rated-movies/topRatedMovies';
+import { Audio } from 'react-loader-spinner';
 import './App.css';
 
 const App = () => {
@@ -15,7 +16,7 @@ const App = () => {
         <Router>
             <nav className="navbar">
                 <div className={`logo-container ${isLogoOpen ? 'open' : ''}`} onClick={toggleLogo}>
-                    <span className="logo">🎥 MovieDB</span>
+                    <span className="logo">🎥 Movies</span>
                 </div>
                 <ul className={`menu ${isLogoOpen ? 'open' : ''}`}>
                     <li>
