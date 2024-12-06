@@ -7,6 +7,7 @@ const TopRatedMovies = () => {
     const [movies, setMovies] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(true);
+    const [busca, setBusca] = useState('');
 
     const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
     const BASE_URL = 'https://api.themoviedb.org/3';
@@ -51,11 +52,25 @@ const TopRatedMovies = () => {
         );
     }
 
+    const filteredMovies = movies.filter((movie) => 
+        movie.title.toLowerCase().includes(busca.toLowerCase()));
+
     return (
         <div className='App'>
             <h1>Most Rated Movies</h1>
+            <div className="search-container">
+      <div className="search-box">
+        <i className="search-icon">🔍</i>
+        <input
+          type="text"
+          placeholder="Search for movies..."
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+        />
+        </div>
+      </div>
             <div className="movies-grid">
-                {movies.map((movie) => (
+                {filteredMovies.map((movie) => (
                     <div key={movie.id} className="movie-card">
                         <img
                             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

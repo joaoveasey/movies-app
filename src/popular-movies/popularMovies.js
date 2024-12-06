@@ -5,6 +5,7 @@ import "./popularMovies.css";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
+  const [busca, setBusca] = useState('');
   const [loading, setLoading] = useState(true);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [page, setPage] = useState(1); // Página atual
@@ -53,11 +54,25 @@ const App = () => {
         );
   }
 
+  const filteredMovies = movies.filter((movie) => 
+    movie.title.toLowerCase().includes(busca.toLowerCase()));
+
   return (
     <div className="App">
       <h1>Popular Movies</h1>
+      <div className="search-container">
+      <div className="search-box">
+        <i className="search-icon">🔍</i>
+        <input
+          type="text"
+          placeholder="Search for movies..."
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+        />
+        </div>
+      </div>
       <div className="movies-grid">
-        {movies.map((movie) => (
+        {filteredMovies.map((movie) => (
           <div
             key={movie.id}
             className="movie-card"

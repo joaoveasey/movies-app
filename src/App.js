@@ -7,6 +7,7 @@ import './App.css';
 
 const App = () => {
     const [isLogoOpen, setIsLogoOpen] = useState(false);
+    const [busca, setBusca] = useState('');
 
     const toggleLogo = () => {
         setIsLogoOpen((prev) => !prev);

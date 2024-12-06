@@ -105,3 +105,44 @@
 .pagination span {
   color: #dedede;
 }
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #f3f3f3, #e3e3e3);  padding: 10px 20px;
+  overflow: hidden;
+}
+
+.search-icon {
+  font-size: 18px;
+  color: #888;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.search-box:hover .search-icon {
+  color: #4fa94d; 
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
