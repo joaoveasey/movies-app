@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import PopularMovies from './popular-movies/popularMovies';
 import TopRatedMovies from './top-rated-movies/topRatedMovies';
-import { Audio } from 'react-loader-spinner';
+import Home from './home/home';
 import './App.css';
 
 const App = () => {
@@ -29,6 +29,7 @@ const App = () => {
                 </ul>
             </nav>
             <Routes>
+                <Route path="/" element={<Home />} />
                 <Route path="/popular-movies" element={<PopularMovies />} />
                 <Route path="/top-rated" element={<TopRatedMovies />} />
             </Routes>
