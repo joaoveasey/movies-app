@@ -80,6 +80,10 @@
   text-align: left;
 }
 
+.movie-details p {
+  color: #131834;
+}
+
 .movie-details h2 {
   margin-top: 0;
 }

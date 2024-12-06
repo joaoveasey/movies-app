@@ -8,6 +8,7 @@ const TopRatedMovies = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(true);
     const [busca, setBusca] = useState('');
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
     const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
     const BASE_URL = 'https://api.themoviedb.org/3';
@@ -71,7 +72,11 @@ const TopRatedMovies = () => {
       </div>
             <div className="movies-grid">
                 {filteredMovies.map((movie) => (
-                    <div key={movie.id} className="movie-card">
+                    <div 
+                        key={movie.id} 
+                        className="movie-card"
+                        onClick={() => setSelectedMovie(movie)}
+                    >
                         <img
                             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                             alt={movie.title}
@@ -87,6 +92,17 @@ const TopRatedMovies = () => {
                 </button>
                 <button onClick={handleNextPage}>Next Page</button>
             </div>
+
+            {/* Modal com detalhes do filme */}
+            {selectedMovie && (
+                <div className="movie-details">
+                <h2>{selectedMovie.title}</h2>
+                <p><strong>Release Date:</strong> {selectedMovie.release_date}</p>
+                <p><strong>Rating:</strong> {selectedMovie.vote_average}</p>
+                <p><strong>Overview:</strong> {selectedMovie.overview}</p>
+                <button onClick={() => setSelectedMovie(null)}>Close</button>
+                </div>
+            )}
         </div>
     );
 };
