@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Blocks } from 'react-loader-spinner';
-import axios from 'axios';
+import image from '../imgs/main-image.png'
+import './home.css';
 
 const Home = () => {
     
 
     return (
         <div className="home">
-            <h1>Welcome to the Movies App</h1>
-            <p>Here you can find the most popular and top rated movies</p>
+            <div className='main-image'>
+               <img src={image} alt='Movies and popcorns' height={500} width={500} />
+            </div>
+            <div className='main-text'>
+                <h1>Welcome to the Movies App</h1>
+                <p>Here you can find the most popular and top rated movies</p>
+            </div>
         </div>
     )
 }

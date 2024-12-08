@@ -1,0 +1,15 @@
+.home {
+    display: flex;
+    align-items: center;
+}
+
+.main-image {
+    margin-top: 10vh;
+    margin-left: 10%;
+}
+
+.main-text {
+    color: #f8f8f8;
+    margin-left: 10%;
+    margin-right: 10%;
+}
