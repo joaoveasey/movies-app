@@ -1,4 +1,4 @@
-.home {
+.main {
     display: flex;
     align-items: center;
 }
@@ -10,6 +10,36 @@
 
 .main-text {
     color: #f8f8f8;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-right: 10%;
+}
+
+.main-text h1 {
+    font-size: 40px;
+}
+
+.main-text p {
+    font-size: 20px;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 80%; /* Limita o tamanho máximo do carousel */
+}
+
+.carousel img {
+    width: 250px; /* Define uma largura fixa para as imagens */
+    height: auto; /* Mantém a proporção das imagens */
+    margin: 0 10px; /* Espaçamento entre as imagens */
+    border-radius: 10px; /* Bordas arredondadas para um visual moderno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar as imagens */
+    transition: transform 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+.carousel img:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Realça a sombra ao passar o mouse */
 }
